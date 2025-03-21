@@ -2,12 +2,15 @@ public class Produto {
     private int codigo;
     private String nome;
     private int quantidade;
-    private double preco_unit;
     private String categoria;
+    private double precoUnit;
 
-    Produto(int codigo, String nome){
+    Produto(int codigo, String nome, int quantidade, String categoria, double precoUnit){
         this.codigo = codigo;
         this.nome = nome;
+        this.quantidade = quantidade;
+        this.categoria = categoria;
+        this.precoUnit = precoUnit;
     }
 
     /**
@@ -55,15 +58,15 @@ public class Produto {
     /**
      * @return the preco_unit
      */
-    public double getPreco_unit() {
-        return preco_unit;
+    public double getPrecoUnit() {
+        return precoUnit;
     }
 
     /**
      * @param preco_unit the preco_unit to set
      */
-    public void setPreco_unit(double preco_unit) {
-        this.preco_unit = preco_unit;
+    public void setPrecoUnit(double preco_unit) {
+        this.precoUnit = preco_unit;
     }
 
     /**
@@ -82,6 +85,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return this.codigo + " " + this.nome;
+        return this.codigo + " " + this.nome + " " + this.quantidade + " " + this.categoria + " " + this.precoUnit;
     }
 }
