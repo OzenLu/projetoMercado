@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c81e68f-9881-4d99-8e1d-d7889ebf6add" name="Changes" comment="Iniciando projeto - sistema de estoque">
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+    <list default="true" id="2c81e68f-9881-4d99-8e1d-d7889ebf6add" name="Changes" comment="Atualização 1&#10;&#10;Aumentado o número de parametros dentro do construtor;&#10;Atualizada a função de cadastro do metodo Main;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sistema_de_controle_de_estoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sistema_de_controle_de_estoque.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,11 +74,20 @@
       <option name="project" value="LOCAL" />
       <updated>1742475958887</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Atualização 1&#10;&#10;Aumentado o número de parametros dentro do construtor;&#10;Atualizada a função de cadastro do metodo Main;">
+      <option name="closed" value="true" />
+      <created>1742581598651</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742581598651</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Iniciando projeto - sistema de estoque" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniciando projeto - sistema de estoque" />
+    <MESSAGE value="Atualização 1&#10;&#10;Aumentado o número de parametros dentro do construtor;&#10;Atualizada a função de cadastro do metodo Main;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualização 1&#10;&#10;Aumentado o número de parametros dentro do construtor;&#10;Atualizada a função de cadastro do metodo Main;" />
   </component>
 </project>
