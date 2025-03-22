@@ -99,7 +99,7 @@ public class Sistema_de_controle_de_estoque {
                           "Código", "Nome", "Quantidade", "Categoria", "Preço");
 
         System.out.println("=".repeat(80)); // Linha separadora
-
+        
         for (Produto produto : lista) {
             // Verificando se a quantidade é menor ou igual a 20 para aplicar a cor vermelha
             String quantidadeFormatada = (produto.getQuantidade() <= 20) 
@@ -113,7 +113,7 @@ public class Sistema_de_controle_de_estoque {
                               produto.getPrecoUnitario());
         }
 
-        menu(lista, codigo);
+       menu(lista, codigo);
     }
 
     static void gerarRelatorioBaixoEstoque(ArrayList<Produto> lista, int codigo) {
@@ -135,10 +135,31 @@ public class Sistema_de_controle_de_estoque {
         menu(lista, codigo);
     }
 
+    static void gerarRelatorioVenda(ArrayList<Produto> lista, int codigo) {
+      
+        System.out.printf("%-10s %-20s %-12s %-20s %-12s%n", 
+                          "Código", "Nome", "Quantidade", "Categoria", "Preço");
+
+        System.out.println("=".repeat(80)); // Linha separadora
+        
+        for (Produto produto : lista) {
+         
+            String quantidadeFormatada = (produto.getQuantidade() <= 20) 
+                ? RED + produto.getQuantidade() + RESET 
+                : String.valueOf(produto.getQuantidade());
+
+            System.out.printf("%-10d %-20s %-12s %-20s %-12.2f%n", 
+                              produto.getCodigo(), produto.getNome(), 
+                              quantidadeFormatada, produto.getCategoria(), 
+                              produto.getPrecoUnitario());
+        }
+
+    }
+
     static void registrarVenda(ArrayList<Produto> lista, int codigo) {
         Scanner sc = new Scanner(System.in);
 
-        gerarRelatorioGeral(lista, codigo);
+        gerarRelatorioVenda(lista, codigo);
 
         
         System.out.println("Informe o código do produto que deseja vender:");
