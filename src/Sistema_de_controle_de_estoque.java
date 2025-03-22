@@ -9,7 +9,7 @@ public class Sistema_de_controle_de_estoque {
 
     static void menu(ArrayList<Produto> lista, int codigo) {
         System.out.println("""
-                [1] Cadastrar item
+                \n[1] Cadastrar item
                 
                 [2] Acessar relatórios
                 
@@ -46,19 +46,19 @@ public class Sistema_de_controle_de_estoque {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            codigo++;
+            codigo++ ;
 
-            System.out.println("Nome:");
+            System.out.print("Nome:");
             String nome = sc.nextLine();
 
-            System.out.println("Quantidade:");
+            System.out.print("Quantidade:");
             int quantidade = sc.nextInt();
             sc.nextLine();
 
-            System.out.println("Categoria:");
+            System.out.print("Categoria:");
             String categoria = sc.nextLine();
 
-            System.out.println("Preço unitário:");
+            System.out.print("Preço unitário:");
             double precoUnitario = sc.nextDouble();
             sc.nextLine();
 
@@ -199,12 +199,14 @@ public class Sistema_de_controle_de_estoque {
     }
 
     public static void main(String[] args) {
-        int codigo = 0;
-
         ArrayList<Produto> listaDeProdutos = new ArrayList<>();
-        listaDeProdutos.add(new Produto(1, "Arroz", 10, "Alimentos", 5.50));
+
+        listaDeProdutos.add(new Produto(1, "Arroz", 30, "Alimentos", 5.50));
         listaDeProdutos.add(new Produto(2, "Feijão", 25, "Alimentos", 7.80));
-        listaDeProdutos.add(new Produto(3, "Detergente", 15, "Limpeza", 2.30));
+        listaDeProdutos.add(new Produto(3, "Detergente", 28, "Limpeza", 2.30));
+
+        int size = listaDeProdutos.size();
+        int codigo = size;
 
         menu(listaDeProdutos, codigo);
     }
