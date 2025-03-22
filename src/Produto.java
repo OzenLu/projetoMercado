@@ -3,88 +3,60 @@ public class Produto {
     private String nome;
     private int quantidade;
     private String categoria;
-    private double precoUnit;
-
-    Produto(int codigo, String nome, int quantidade, String categoria, double precoUnit){
-        this.codigo = codigo;
-        this.nome = nome;
-        this.quantidade = quantidade;
-        this.categoria = categoria;
-        this.precoUnit = precoUnit;
+    private double precoUnitario; 
+ 
+    public Produto(int codigo, String nome, int quantidade, String categoria, double precoUnitario) {
+       this.codigo = codigo;
+       this.nome = nome;
+       this.quantidade = quantidade;
+       this.categoria = categoria;
+       this.precoUnitario = precoUnitario;
     }
-
-    /**
-     * @return the codigo
-     */
+ 
     public int getCodigo() {
-        return codigo;
+       return codigo;
     }
-
-    /**
-     * @param codigo the codigo to set
-     */
+ 
     public void setCodigo(int codigo) {
-        this.codigo = codigo;
+       this.codigo = codigo;
     }
-
-    /**
-     * @return the nome
-     */
+ 
     public String getNome() {
-        return nome;
+       return nome;
     }
-
-    /**
-     * @param nome the nome to set
-     */
+ 
     public void setNome(String nome) {
-        this.nome = nome;
+       this.nome = nome;
     }
-
-    /**
-     * @return the quantidade
-     */
+ 
     public int getQuantidade() {
-        return quantidade;
+       return quantidade;
     }
-
-    /**
-     * @param quantidade the quantidade to set
-     */
+ 
     public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+       this.quantidade = quantidade;
     }
-
-    /**
-     * @return the preco_unit
-     */
-    public double getPrecoUnit() {
-        return precoUnit;
+ 
+    public double getPrecoUnitario() { // Nome atualizado
+       return precoUnitario;
     }
-
-    /**
-     * @param preco_unit the preco_unit to set
-     */
-    public void setPrecoUnit(double preco_unit) {
-        this.precoUnit = preco_unit;
+ 
+    public void setPrecoUnitario(double precoUnitario) { // Nome atualizado
+       this.precoUnitario = precoUnitario;
     }
-
-    /**
-     * @return the categoria
-     */
+ 
     public String getCategoria() {
-        return categoria;
+       return categoria;
     }
-
-    /**
-     * @param categoria the categoria to set
-     */
+ 
     public void setCategoria(String categoria) {
-        this.categoria = categoria;
+       this.categoria = categoria;
     }
-
+ 
     @Override
     public String toString() {
-        return this.codigo + " " + this.nome + " " + this.quantidade + " " + this.categoria + " " + this.precoUnit;
+       return String.format("%-10d %-20s %-12d %-15s %-12.2f", 
+                            codigo, nome, quantidade, categoria, precoUnitario);
     }
-}
+ }
+ 
