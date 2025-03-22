@@ -46,33 +46,55 @@ public class Sistema_de_controle_de_estoque {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            codigo++ ;
+            
+            System.out.println("Nome:");
+        String nome = sc.nextLine();
 
-            System.out.print("Nome:");
-            String nome = sc.nextLine();
+        // Verifica se o produto já existe
+        boolean produtoExiste = false;
+        for (Produto p : lista) {
+            if (p.getNome().equalsIgnoreCase(nome)) { // Ignora maiúsculas e minúsculas
+                System.out.println("Produto já cadastrado!\nAdicionando ao estoque existente.");
 
-            System.out.print("Quantidade:");
+                System.out.println("Quantidade a adicionar:");
+                int quantidadeAdicional = sc.nextInt();
+                sc.nextLine();
+
+                p.setQuantidade(p.getQuantidade() + quantidadeAdicional); // Soma a quantidade
+                produtoExiste = true;
+                break; // Sai do loop, pois já encontrou o produto
+            }
+        }
+
+        // Se o produto não existe, cadastra um novo
+        if (!produtoExiste) {
+            codigo++; // Incrementa o código para o novo item
+
+            System.out.println("Quantidade:");
             int quantidade = sc.nextInt();
             sc.nextLine();
 
-            System.out.print("Categoria:");
+            System.out.println("Categoria:");
             String categoria = sc.nextLine();
 
-            System.out.print("Preço unitário:");
+            System.out.println("Preço unitário:");
             double precoUnitario = sc.nextDouble();
             sc.nextLine();
 
-            Produto produto = new Produto(codigo, nome, quantidade, categoria, precoUnitario);
-            lista.add(produto);
-
-            System.out.println("Continuar cadastrando? (Y/n)");
-            String sc_continuar = sc.nextLine();
-            if (!sc_continuar.equalsIgnoreCase("Y")) {
-                break;
-            }
+            Produto novoProduto = new Produto(codigo, nome, quantidade, categoria, precoUnitario);
+            lista.add(novoProduto);
+            System.out.println("Produto cadastrado com sucesso!");
         }
-        menu(lista, codigo);
+
+        System.out.println("Continuar cadastrando? (Y/n)");
+        String sc_continuar = sc.nextLine();
+        if (!sc_continuar.equalsIgnoreCase("Y")) {
+            break;
+        }
     }
+
+    menu(lista, codigo);
+}
 
     static void escolherRelatorio(ArrayList<Produto> lista, int codigo) {
         Scanner sc = new Scanner(System.in);
