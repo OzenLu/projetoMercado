@@ -12,7 +12,7 @@ public class Sistema_de_controle_de_estoque {
      */
     static void menu(ArrayList<Produto> lista, int codigo) {
         System.out.println("""
-                \n[1] Cadastrar item
+                \n[1] Adicionar produto
                 
                 [2] Acessar relatórios
                 
@@ -25,7 +25,7 @@ public class Sistema_de_controle_de_estoque {
 
         switch (scMenu) {
             case 1:
-                System.out.println("Iniciando cadastro\n");
+                System.out.println("Iniciando adição de produto\n");
                 adicionar(lista, codigo);
                 break;
             case 2:
@@ -45,7 +45,7 @@ public class Sistema_de_controle_de_estoque {
         }
     }
     /*
-        Função para adicionar um produto
+        Função para adicionar um produto novo ao estoque ou apenas aumentar a sua quantidade
      */
     static void adicionar(ArrayList<Produto> lista, int codigo) {
         Scanner sc = new Scanner(System.in);
@@ -101,7 +101,7 @@ public class Sistema_de_controle_de_estoque {
     menu(lista, codigo);
 }
     /*
-        Função para escolher entro os dois relatórios: geral ou de baixo estoque.
+        Função para escolher entro os dois relatórios: produtos gerais ou produtos com baixo estoque.
      */
     static void escolherRelatorio(ArrayList<Produto> lista, int codigo) {
         Scanner sc = new Scanner(System.in);
@@ -190,7 +190,6 @@ public class Sistema_de_controle_de_estoque {
                               quantidadeFormatada, produto.getCategoria(), 
                               produto.getPrecoUnitario());
         }
-
     }
 
     /*
