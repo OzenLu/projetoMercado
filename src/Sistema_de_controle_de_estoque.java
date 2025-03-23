@@ -18,11 +18,11 @@ public class Sistema_de_controle_de_estoque {
                 
                 [3] Registrar venda
                 
-                [4] Sair""");
+                [4] Finalizar Sistema""");
 
         Scanner sc = new Scanner(System.in);
         int scMenu = sc.nextInt();
-
+        
         switch (scMenu) {
             case 1:
                 System.out.println("Iniciando adição de produto\n");
@@ -36,8 +36,7 @@ public class Sistema_de_controle_de_estoque {
                 break;
             default:
                 if (scMenu == 4) {
-                    System.out.println("Saindo");
-                    sc.close();
+                    System.out.println("Sistema Finalizado");
                     return;
                 }
                 System.out.println("Opção inválida");
@@ -96,6 +95,7 @@ public class Sistema_de_controle_de_estoque {
         if (!sc_continuar.equalsIgnoreCase("Y")) {
             break;
         }
+
     }
 
     menu(lista, codigo);
