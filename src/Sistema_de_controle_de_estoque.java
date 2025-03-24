@@ -25,13 +25,16 @@ public class Sistema_de_controle_de_estoque {
         Scanner sc = new Scanner(System.in);
         int scMenu = sc.nextInt();
         
+        /*
+        Switch case para o usuario escolher qual metodo realizar.
+        */
         switch (scMenu) {
             case 1:
                 System.out.println("Iniciando adição de produto\n");
                 adicionar(lista, codigo);
                 break;
             case 2:
-                escolherRelatorio(lista, codigo);
+                escolherRelatorio(lista);
                 break;
             case 3:
                 registrarVenda(lista, codigo);
@@ -105,102 +108,34 @@ public class Sistema_de_controle_de_estoque {
     /*
         Função para escolher entro os dois relatórios: produtos gerais ou produtos com baixo estoque.
      */
-    static void escolherRelatorio(ArrayList<Produto> lista, int codigo) {
+    static void escolherRelatorio(ArrayList<Produto> lista) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("1 - Relatório geral");
         System.out.print("2 - Relatório de produtos com baixo estoque\n--> ");
         int scRelatorio = sc.nextInt();
-
+    
         switch (scRelatorio) {
             case 1:
-                gerarRelatorioGeral(lista, codigo);
+                Relatorio.gerarRelatorioGeral(lista);
+                menu(lista, lista.size());
                 break;
             case 2:
-                gerarRelatorioBaixoEstoque(lista, codigo);
+                Relatorio.gerarRelatorioBaixoEstoque(lista);
+                menu(lista, lista.size());
                 break;
             default:
-                menu(lista, codigo);
+                menu(lista, lista.size());
         }
     }
-    /*
-        Função que gera o relatório geral do estoque.
-     */
-    static void gerarRelatorioGeral(ArrayList<Produto> lista, int codigo) {
-      
-        System.out.printf("%-10s %-20s %-12s %-20s %-12s%n", 
-                          "Código", "Nome", "Quantidade", "Categoria", "Preço");
-
-        System.out.println("=".repeat(80)); // Linha separadora
-        
-        for (Produto produto : lista) {
-            // Verificando se a quantidade é menor ou igual a 20 para aplicar a cor vermelha
-            String quantidadeFormatada = (produto.getQuantidade() <= 20) 
-                ? RED + produto.getQuantidade() + RESET 
-                : String.valueOf(produto.getQuantidade());
-
-            // Ajuste de formatação para garantir o alinhamento
-            System.out.printf("%-10d %-20s %-12s %-20s %-12.2f%n", 
-                              produto.getCodigo(), produto.getNome(), 
-                              quantidadeFormatada, produto.getCategoria(), 
-                              produto.getPrecoUnitario());
-        }
-
-       menu(lista, codigo);
-    }
-
-    /*
-        Função que gera o relatório de produtos com baixo estoque.
-    */
-    static void gerarRelatorioBaixoEstoque(ArrayList<Produto> lista, int codigo) {
-     
-        System.out.printf("%-10s %-20s %-12s %-20s %-12s%n", 
-                          "Código", "Nome", "Quantidade", "Categoria", "Preço");
-
-        System.out.println("=".repeat(80)); // Linha separadora
-
-        for (Produto produto : lista) {
-            if (produto.getQuantidade() <= 20) {
-                System.out.printf("%-10d %-20s " + RED + "%-12d" + RESET + " %-20s %-12.2f%n", 
-                                  produto.getCodigo(), produto.getNome(), 
-                                  produto.getQuantidade(), produto.getCategoria(), 
-                                  produto.getPrecoUnitario());
-            }
-        }
-
-        menu(lista, codigo);
-    }
-
-    /*
-        Função utilizada em registrarVenda(), para exibir os produtos no estoque
-     */
-    static void gerarRelatorioVenda(ArrayList<Produto> lista, int codigo) {
-      
-        System.out.printf("%-10s %-20s %-12s %-20s %-12s%n", 
-                          "Código", "Nome", "Quantidade", "Categoria", "Preço");
-
-        System.out.println("=".repeat(80)); // Linha separadora
-        
-        for (Produto produto : lista) {
-         
-            String quantidadeFormatada = (produto.getQuantidade() <= 20) 
-                ? RED + produto.getQuantidade() + RESET 
-                : String.valueOf(produto.getQuantidade());
-
-            System.out.printf("%-10d %-20s %-12s %-20s %-12.2f%n", 
-                              produto.getCodigo(), produto.getNome(), 
-                              quantidadeFormatada, produto.getCategoria(), 
-                              produto.getPrecoUnitario());
-        }
-    }
-
+ 
     /*
         Função para registrar uma venda caso o produto exista e tenha estoque suficiente dele.
      */
     static void registrarVenda(ArrayList<Produto> lista, int codigo) {
         Scanner sc = new Scanner(System.in);
 
-        gerarRelatorioVenda(lista, codigo);
+        Relatorio.gerarRelatorioVenda(lista, codigo);
 
         System.out.print("\nInforme o código do produto que deseja vender:\n--> ");
         int codigoProduto = sc.nextInt();
